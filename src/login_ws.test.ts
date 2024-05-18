@@ -32,8 +32,8 @@ function wait(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const username = process.env.USERNAME;
-const password = process.env.PASSWORD;
+const username = process.env.PS_USERNAME;
+const password = process.env.PS_PASSWORD;
 assert(username !== undefined, 'Username not defined');
 assert(password !== undefined, 'Password not defined');
 
