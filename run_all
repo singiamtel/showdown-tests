@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
+for file in $(find src -type f ); do
+    echo "Running $file"
+    npx tsx $file
+done

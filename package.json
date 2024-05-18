@@ -1,0 +1,22 @@
+{
+  "name": "showdown-tests",
+  "module": "src/index.ts",
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "bash run_all"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ps-client": "^3.5.3"
+  },
+  "trustedDependencies": [
+    "es5-ext"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.12.12"
+  }
+}
