@@ -17,6 +17,6 @@
     "es5-ext"
   ],
   "devDependencies": {
-    "@types/node": "^20.12.12"
+    "@types/node": "^20.12.13"
   }
 }
