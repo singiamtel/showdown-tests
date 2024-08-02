@@ -1,9 +1,27 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 set -o pipefail
+
+
+
+# Setup the submodules
+git submodule init
+
+# For each submodule, npm install and npm run build
+# git submodule foreach 'npm install && npm run build'
+
+git submodule status
+
+
 
 for file in $(find src -type f ); do
     echo "Running $file"
-    npx tsx $file
+	# if file contains .bun, run bun otherwise run tsx
+	if [[ $file ==  *".bun"* ]]; then
+		bun run $file &
+	else
+		npx tsx $file &
+	fi
+	wait -n $(jobs -p) # Wait for any job to finish
 done
