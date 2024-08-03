@@ -9,7 +9,7 @@ set -o pipefail
 git submodule init
 
 # For each submodule, npm install and npm run build
-# git submodule foreach 'npm install && npm run build'
+git submodule foreach 'npm install && npm run build'
 
 git submodule status
 
