@@ -24,7 +24,6 @@ async function test(move: string, p1:string, p2:string) {
 	);
 	const damage = battle.p1.active[0].maxhp - battle.p1.active[0].hp;
 	assert(result.damage.includes(damage), 'Showdown damage is impossible according to damage-calc. Showdown: ' + damage + ', damage-calc: ' + result.damage);
-	process.exit(1);
 }
 
 test('psystrike', 'Mewtwo', 'Mewtwo').catch((e) => {

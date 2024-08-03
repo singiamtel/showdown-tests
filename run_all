@@ -21,7 +21,7 @@ for file in $(find src -type f ); do
 	if [[ $file ==  *".bun"* ]]; then
 		bun run $file &
 	else
-		npx tsx $file &
+		npx --yes tsx $file &
 	fi
 	wait -n $(jobs -p) # Wait for any job to finish
 done
