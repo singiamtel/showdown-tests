@@ -12,7 +12,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "fast-cartesian": "^9.0.0",
-    "ps-client": "^4.0.2"
+    "ps-client": "^4.2.0"
   },
   "trustedDependencies": [
     "es5-ext"
