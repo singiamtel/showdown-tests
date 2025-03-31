@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "dotenv": "^16.4.7",
-    "fast-cartesian": "^9.0.0",
+    "fast-cartesian": "^9.0.1",
     "ps-client": "^4.4.0"
   },
   "trustedDependencies": [
