@@ -10,7 +10,7 @@
     "start": "bash run_all"
   },
   "dependencies": {
-    "dotenv": "^16.6.1",
+    "dotenv": "^17.0.0",
     "fast-cartesian": "^9.0.1",
     "ps-client": "^4.5.3"
   },
