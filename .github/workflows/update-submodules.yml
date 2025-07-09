@@ -1,3 +1,5 @@
+name: 'Update Submodules'
+
 on:
   workflow_dispatch:
   schedule:

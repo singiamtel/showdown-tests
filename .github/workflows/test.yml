@@ -1,3 +1,4 @@
+name: Run daily tests
 
 on:
   schedule:
