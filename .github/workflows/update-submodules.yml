@@ -1,0 +1,40 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '3 3 * * *'  # Every midnight
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: 'Submodules Sync'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    # Update references
+    - name: Git Submodule Update
+      run: |
+        set -e
+        git pull --recurse-submodules
+        git submodule update --remote --recursive
+
+    - name: Commit update
+      run: |
+        set -e
+        git config user.name "Automated"
+        git config user.email "actions@users.noreply.github.com"
+        git add -A
+        timestamp=$(date -u)
+        git commit -m "${timestamp}" || exit 0
+        git pull --rebase
+        git push
