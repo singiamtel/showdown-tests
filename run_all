@@ -19,9 +19,9 @@ for file in $(find src -type f ); do
     echo "Running $file"
 	# if file contains .bun, run bun otherwise run tsx
 	if [[ $file ==  *".bun"* ]]; then
-		bun run $file &
+		bun run "$file" &
 	else
-		npx --yes tsx $file &
+		npx --yes tsx --env-file=.env "$file" &
 	fi
-	wait -n $(jobs -p) # Wait for any job to finish
+	wait -n "$(jobs -p)" # Wait for any job to finish
 done

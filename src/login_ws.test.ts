@@ -1,8 +1,4 @@
-// dotenv
-import { config } from "dotenv";
 import { Client } from 'ps-client';
-config();
-
 
 type Server = {
   url: string,
