@@ -13,7 +13,12 @@ git submodule foreach 'npm install && npm run build'
 
 git submodule status
 
-
+if [ -f ".env" ]; then
+    # Source the .env file if it exists and export the variables
+    set -a
+    source .env
+    set +a
+fi
 
 for file in $(find src -type f ); do
     echo "Running $file"
@@ -21,7 +26,7 @@ for file in $(find src -type f ); do
 	if [[ $file ==  *".bun"* ]]; then
 		bun run "$file" &
 	else
-		npx --yes tsx --env-file=.env "$file" &
+		npx --yes tsx "$file" &
 	fi
 	wait -n "$(jobs -p)" # Wait for any job to finish
 done
