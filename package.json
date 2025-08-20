@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "fast-cartesian": "^9.0.1",
-    "ps-client": "^5.1.1"
+    "ps-client": "^5.1.2"
   },
   "trustedDependencies": [
     "es5-ext"
