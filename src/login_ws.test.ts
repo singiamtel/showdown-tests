@@ -45,7 +45,7 @@ async function testServer(server: Server, loginserver: string, timeout = 10000) 
       server: server.url,
       loginServer: loginserver,
       rooms: [],
-      autoReconnect: false,
+      autoReconnect: 20_000,
     });
 
     const timer = setTimeout(async () => {
