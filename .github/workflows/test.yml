@@ -1,9 +1,12 @@
 name: Run daily tests
 
 on:
-  # schedule:
-  #   - cron: "0 8 * * *"
+  schedule:
+    - cron: "0 8 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -11,13 +14,13 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        node-version: ['18.x', '20.x', '22.x']
+        node-version: ['20.x', '22.x', '24.x']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: true
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
       - shell: bash
@@ -27,3 +30,23 @@ jobs:
         run: |
           npm ci
           npm start
+
+  update-status:
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.x'
+      - name: Update status
+        run: node scripts/update-status.mjs ${{ needs.build.result }}
+      - name: Commit
+        run: |
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add status.json README.md
+          git commit -m "Update status: ${{ needs.build.result }}" || exit 0
+          git pull --rebase
+          git push
