@@ -45,7 +45,7 @@ async function testServer(server: Server, loginserver: string, timeout = 10000) 
       server: server.url,
       loginServer: loginserver,
       rooms: [],
-      autoReconnect: 20_000,
+      autoReconnect: false,
     });
 
     const timer = setTimeout(async () => {
@@ -84,6 +84,7 @@ async function main() {
   try {
     await Promise.all(promises);
     console.log('All tests passed');
+    process.exit(0);
   }
   catch (e) {
     console.error('Error', e);

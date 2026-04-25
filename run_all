@@ -20,7 +20,8 @@ if [ -f ".env" ]; then
     set +a
 fi
 
-for file in $(find src -type f ); do
+pids=()
+for file in $(find src -type f -name '*.test.ts'); do
     echo "Running $file"
 	# if file contains .bun, run bun otherwise run tsx
 	if [[ $file ==  *".bun"* ]]; then
@@ -28,5 +29,9 @@ for file in $(find src -type f ); do
 	else
 		npx --yes tsx "$file" &
 	fi
-	wait -n "$(jobs -p)" # Wait for any job to finish
+	pids+=($!)
+done
+
+for pid in "${pids[@]}"; do
+    wait "$pid"
 done
