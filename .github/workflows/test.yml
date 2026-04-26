@@ -3,6 +3,7 @@ name: Run daily tests
 on:
   schedule:
     - cron: "0 8 * * *"
+    - cron: "0 20 * * *"
   workflow_dispatch:
 
 permissions:
@@ -61,7 +62,7 @@ jobs:
 
   update-status:
     needs: build
-    if: always()
+    if: always() && needs.build.result != 'cancelled'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
