@@ -19,14 +19,42 @@ jobs:
       - uses: actions/checkout@v6
         with:
           submodules: true
+
+      - name: Get submodule SHAs
+        id: submodules
+        run: |
+          echo "ps=$(git -C pokemon-showdown rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "dc=$(git -C damage-calc rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache pokemon-showdown
+        id: cache-ps
+        uses: actions/cache@v4
+        with:
+          path: |
+            pokemon-showdown/node_modules
+            pokemon-showdown/dist
+          key: ${{ runner.os }}-${{ matrix.node-version }}-ps-${{ steps.submodules.outputs.ps }}-${{ hashFiles('pokemon-showdown/package-lock.json') }}
+
+      - name: Cache damage-calc
+        id: cache-dc
+        uses: actions/cache@v4
+        with:
+          path: |
+            damage-calc/node_modules
+            damage-calc/calc/node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-dc-${{ steps.submodules.outputs.dc }}-${{ hashFiles('damage-calc/package-lock.json', 'damage-calc/calc/package-lock.json') }}
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
       - shell: bash
         env:
           PS_USERNAME: ${{ secrets.PS_USERNAME }}
           PS_PASSWORD: ${{ secrets.PS_PASSWORD }}
+          SKIP_SUBMODULE_BUILD: ${{ steps.cache-ps.outputs.cache-hit == 'true' && steps.cache-dc.outputs.cache-hit == 'true' }}
         run: |
           npm ci
           npm start

@@ -5,13 +5,15 @@ set -o pipefail
 
 
 
-# Setup the submodules
-git submodule init
+if [ "$SKIP_SUBMODULE_BUILD" != "true" ]; then
+    # Setup the submodules
+    git submodule init
 
-# For each submodule, npm install and npm run build
-git submodule foreach 'npm install && npm run build'
+    # For each submodule, npm install and npm run build
+    git submodule foreach 'npm install && npm run build'
 
-git submodule status
+    git submodule status
+fi
 
 if [ -f ".env" ]; then
     # Source the .env file if it exists and export the variables
@@ -27,7 +29,7 @@ for file in $(find src -type f -name '*.test.ts'); do
 	if [[ $file ==  *".bun"* ]]; then
 		bun run "$file" &
 	else
-		npx --yes tsx "$file" &
+		npx tsx "$file" &
 	fi
 	pids+=($!)
 done
