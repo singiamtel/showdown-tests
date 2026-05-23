@@ -1,13 +1,14 @@
 # Showdown Tests
 
-![Status](https://img.shields.io/badge/Pokemon_Showdown-DOWN-red)
+![Status](https://img.shields.io/badge/Pokemon_Showdown-UP-brightgreen)
 
-> Pokemon Showdown was **down** at 2026-05-23 08:42 UTC
+> Pokemon Showdown was **up** at 2026-05-23 09:06 UTC
 
 ## Status History
 
 | Date | Status |
 |------|--------|
+| 2026-05-23 09:06 UTC | Up |
 | 2026-05-23 08:42 UTC | Down |
 | 2026-05-22 20:40 UTC | Up |
 | 2026-05-22 09:07 UTC | Up |
