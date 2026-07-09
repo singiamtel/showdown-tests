@@ -29,7 +29,7 @@ jobs:
 
       - name: Cache pokemon-showdown
         id: cache-ps
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             pokemon-showdown/node_modules
@@ -38,7 +38,7 @@ jobs:
 
       - name: Cache damage-calc
         id: cache-dc
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             damage-calc/node_modules
