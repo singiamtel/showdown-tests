@@ -2,12 +2,13 @@
 
 ![Status](https://img.shields.io/badge/Pokemon_Showdown-UP-brightgreen)
 
-> Pokemon Showdown was **up** at 2026-08-16 08:22 UTC
+> Pokemon Showdown was **up** at 2026-08-16 20:31 UTC
 
 ## Status History
 
 | Date | Status |
 |------|--------|
+| 2026-08-16 20:31 UTC | Up |
 | 2026-08-16 08:22 UTC | Up |
 | 2026-08-15 20:31 UTC | Up |
 | 2026-08-15 08:25 UTC | Up |
@@ -68,5 +69,4 @@
 | 2026-07-18 21:00 UTC | Up |
 | 2026-07-18 09:23 UTC | Up |
 | 2026-07-17 21:04 UTC | Up |
-| 2026-07-17 09:56 UTC | Up |
 
