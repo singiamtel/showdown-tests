@@ -1,15 +1,14 @@
-WARNING: I'm shutting this off as it has become a Github status meter, rather than a Showdown one...
-
 # Showdown Tests
 
 ![Status](https://img.shields.io/badge/Pokemon_Showdown-UP-brightgreen)
 
-> Pokemon Showdown was **up** at 2026-10-08 00:07 UTC
+> Pokemon Showdown was **up** at 2026-10-08 15:16 UTC
 
 ## Status History
 
 | Date | Status |
 |------|--------|
+| 2026-10-08 15:16 UTC | Up |
 | 2026-10-08 00:07 UTC | Up |
 | 2026-10-06 23:44 UTC | Up |
 | 2026-10-06 14:47 UTC | Up |
@@ -68,5 +67,4 @@ WARNING: I'm shutting this off as it has become a Github status meter, rather th
 | 2026-09-09 22:26 UTC | Up |
 | 2026-09-09 12:43 UTC | Up |
 | 2026-09-08 22:32 UTC | Up |
-| 2026-09-08 12:34 UTC | Up |
 
