@@ -2,8 +2,8 @@ name: 'Update Submodules'
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '3 3 * * *'  # Every midnight
+  # schedule:
+  #   - cron: '3 3 * * *'  # Every midnight
 
 permissions:
   contents: write
