@@ -1,3 +1,5 @@
+WARNING: I'm shutting this off as it has become a Github status meter, rather than a Showdown one...
+
 # Showdown Tests
 
 ![Status](https://img.shields.io/badge/Pokemon_Showdown-UP-brightgreen)
